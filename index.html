@@ -7,26 +7,40 @@
     <title>Weather Dashboard</title>
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1">Weather Dashboard</span>
+            <div class="row"></div>
+                <span class="navbar-brand mb-0 h1">Weather Dashboard</span>
+            </div>
         </div>
       </nav>
 </head>
+
 <body>
-<aside>
-    <div class="container">
-        <input class="form-control" id="City-Search" type="text" placeholder="Search">
-        <br>
-        <ul style="list-style-type:none;" class="city-list" id="cities">
-          <li class="LA">Los Angeles, USA</li>
-          <li class="NYC">New York, USA</li>
-          <li class="Cairo">Sao Paulo, Brazil</li>
-          <li class="Mexico">Mexico City, Mexico</li>
-          <li class="Shanghai">Shanghai, China</li>
-          <li class="Delhi">Delhi, India</li>
-          <li class="Tokyo">Tokyo, Japan</li>
-        </ul>
-      </div>
-</aside>
-    <script src="index.js"></script>
+    <aside>
+        <div class="container">
+            <div class='row'>
+                <menu class='col-3'>
+                    <input class="form-control" id="City-Search" type="text" placeholder="Search">
+                    <br>
+                    <ul style="list-style-type:none;" class="city-list" id="cities">
+                        <div class='col-2'>
+                        <li class="LA">Los Angeles, USA</li>
+                        <li class="NYC">New York, USA</li>
+                        <li class="Cairo">Sao Paulo, Brazil</li>
+                        <li class="Mexico">Mexico City, Mexico</li>
+                        <li class="Shanghai">Shanghai, China</li>
+                        <li class="Delhi">Delhi, India</li>
+                        <li class="Tokyo">Tokyo, Japan</li>
+                    </ul>
+                </menu>
+                <div class='row'>
+                    <main>
+                        
+                    </main>
+                    
+                </div>
+            </div>
+        </div>
+    </aside>
 </body>
+<script src="index.js"></script>
 </html>
