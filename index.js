@@ -1,4 +1,39 @@
-document(ready)
+$(document).ready(function(){
+
+$('#search').on('click', function(){
+var searchValue= $('#citySearch').val()
+console.log(searchValue)
+currentWeather(searchValue)
+})
+
+var APIkey="f68b613983e0ae131f5d600baa16f997"
+
+function currentWeather(searchValue){
+  $.ajax({
+    type: "GET",
+    url: `https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&appid=${APIkey}`,
+    dataType: "json",
+    success: function (response) {
+      console.log(response)
+      $('.card-title').text(response.name)
+      $('.card-temp').text(`Temp: ${response.main.temp}`)
+      $('.card-hum').text(`Humidity: ${response.main.humidity}`)
+      $('.card-wind').text(`Wind Speed: ${response.wind.speed}`)
+    }
+  });
+}
+
+function fiveDay(searchValue){
+  $.ajax({
+    type: "GET",
+    url: `api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}",
+    data: "data",
+    dataType: "dataType",
+    success: function (response) {
+      
+    }
+  });
+}
 
 // on start preform 3 functions
 // 1. add city to search history 
@@ -17,5 +52,7 @@ document(ready)
     // 
 // create if function, if uv index is between certain rows make background red, yellow, green.
 // be able to click on search history and display time
-var API key=f68b613983e0ae131f5d600baa16f997
+
 var city= userinput
+
+})
