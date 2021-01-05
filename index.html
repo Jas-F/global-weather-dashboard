@@ -5,64 +5,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-            <div class="row"></div>
-                <span class="navbar-brand mb-0 h1">Weather Dashboard</span>
-            </div>
-        </div>
-      </nav>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 
 <body>
-    <aside>
-        <div class="container">
-            <div class='row'>
-                <menu class='col-2'>
-                    <input class="form-control" id="City-Search" type="text" placeholder="Search">
-                    <ul style="list-style-type:none;" class="city-list" id="cities">
-                        <li class="LA">Los Angeles, USA</li>
-                        <li class="NYC">New York, USA</li>
-                        <li class="Cairo">Sao Paulo, Brazil</li>
-                        <li class="Mexico">Mexico City, Mexico</li>
-                        <li class="Shanghai">Shanghai, China</li>
-                        <li class="Delhi">Delhi, India</li>
-                        <li class="Tokyo">Tokyo, Japan</li>
-                    </ul>
-                </menu>
-                <div class='row'>
-                    <div class="col-9">
-                        <div class="card">
-                            <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-2">
-                              <div class="card">..</div>
-                            </div>
-                            <div class="col-2">
-                              <div class="card">..</div>
-                            </div>
-                            <div class="col-2">
-                              <div class="card">..</div>
-                            </div>
-                            <div class="col-2">
-                              <div class="card">..</div>
-                            </div>
-                            <div class="col-2">
-                                <div class="card">..</div>
-                              </div>
-                          </div>
-                    </div>
-                    </main>
-                    
+
+  <nav>
+   Weather Dashboard 
+  </nav>
+
+  <section class="container">
+
+      <div class='row'>
+
+          <div class='card col-md-3'>
+          <div class="input-group">
+              <input class="form-control" id="City-Search" type="text" placeholder="Search"></input>
+              <button class="btn btn-primary" type="submit" value="Submit"><i class=“fa fa-search”>Enter</i></button>
+          </div>
+              <table class="history"></table>
+          </div>
+
+          <div class="col-md-9">
+
+            <div class="row current card">
+                <div class="card-body">
+                  <h1 class="card-title"></h1>
+                  <h5 class="card-temp"></h5>
+                  <h5 class="card-hum"></h5>
+                  <h5 class="card-temp"></h5>
+                  <h5 class="card-temp"></h5>
+
                 </div>
             </div>
-        </div>
-    </aside>
-</body>
+
+            <h2>5-Day Forecast</h2>
+            <div class="row forecast">
+                <div class="col-2">
+                  <div class="card">
+                    <p class="5-date"></p>
+                    <p class="5-icon"></p>
+                    <p class="5-temp"></p>
+                    <p class="5-hum"></p>
+                  </div>
+                </div>
+
+                <div class="col-2">
+                  <div class="card">
+                    <p class="5-date"></p>
+                    <p class="5-icon"></p>
+                    <p class="5-temp"></p>
+                    <p class="5-hum"></p>
+                  </div>
+                </div>
+
+                <div class="col-2">
+                  <div class="card">
+                    <p class="5-date"></p>
+                    <p class="5-icon"></p>
+                    <p class="5-temp"></p>
+                    <p class="5-hum"></p>
+                  </div>
+                </div>
+
+                <div class="col-2">
+                  <div class="card">
+                    <p class="5-date"></p>
+                    <p class="5-icon"></p>
+                    <p class="5-temp"></p>
+                    <p class="5-hum"></p>
+                  </div>
+                </div>
+
+                <div class="col-2">
+                  <div class="card">
+                    <p class="5-date"></p>
+                    <p class="5-icon"></p>
+                    <p class="5-temp"></p>
+                    <p class="5-hum"></p>
+                  </div>
+                </div>
+
+            </div>
+
+      </div>
+        
+  </section>
 <script src="index.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        
+</body>
+
 </html>
