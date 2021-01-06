@@ -4,6 +4,8 @@ $('#search').on('click', function(){
 var searchValue= $('#citySearch').val()
 console.log(searchValue)
 currentWeather(searchValue)
+fiveDay(searchValue)
+uvIndex(searchValue)
 })
 
 var APIkey="f68b613983e0ae131f5d600baa16f997"
@@ -26,10 +28,24 @@ function currentWeather(searchValue){
 function fiveDay(searchValue){
   $.ajax({
     type: "GET",
-    url: `api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}",
-    data: "data",
-    dataType: "dataType",
+    url: `https://api.openweathermap.org/data/2.5/forecast?q=${searchValue}&appid=${APIkey}`,
+    dataType: "json",
     success: function (response) {
+      console.log(response)
+  
+    }
+  });
+}
+
+function uvIndex(SearchValue) {
+  $.ajax({
+    type: "GET",
+    url: `http://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${APIkey}`,
+    dataType: "json",
+    success: function (response) {
+      console.log(response) 
+      $(`.card-uv`).text(`UV: ${response.coord.lon}`)
+
       
     }
   });
@@ -53,6 +69,6 @@ function fiveDay(searchValue){
 // create if function, if uv index is between certain rows make background red, yellow, green.
 // be able to click on search history and display time
 
-var city= userinput
+// var city= userinput
 
 })
