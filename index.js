@@ -1,11 +1,25 @@
 $(document).ready(function(){
+var history = []
+var cities
 $('#search').on('click', function(event){
 event.preventDefault()
 var searchValue= $('#citySearch').val()
 console.log(searchValue)
 currentWeather(searchValue)
 fiveDay(searchValue)
+if(!history.includes(searchValue))
+history.push(searchValue)
+console.log(history)
 // uvIndex(searchValue)
+localStorage.setItem("cities",JSON.stringify(history))
+
+cities= JSON.parse((localStorage.getItem("cities")))
+
+$('.history').empty()
+
+for (i=0; i<cities.length; i++){
+  $(".history").append(cities[i])
+}
 });
 
 var APIkey="f68b613983e0ae131f5d600baa16f997"
@@ -36,6 +50,7 @@ function fiveDay(searchValue){
     dataType: "json",
     success: function (response) {
       console.log(response)
+      $('.forecast').empty()
       for (i=0; i<response.list.length; i++){
         if(response.list[i].dt_txt.indexOf("18:00:00")!== -1){
           var col = $('<div>').addClass('col-2')
@@ -61,16 +76,12 @@ function uvIndex(lat, lon) {
     success: function (response) {
       console.log(response) 
       var value = $('<p>').text(`UV Index: ${response.value}`)
-      $(`.card-uv`).append(value)
-      
-
-      
+      $(`.card-uv`).append(value)  
     }
   });
 }
+console.log(history)
+
+
 
 });
-
-// localStorage.setItem(searchValue)
-
-// $('.history').val(localStorage.getItem(searchValue))
