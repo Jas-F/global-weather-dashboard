@@ -1,11 +1,11 @@
 $(document).ready(function(){
-
-$('#search').on('click', function(){
+$('#search').on('click', function(event){
+  event.preventDefault()
 var searchValue= $('#citySearch').val()
 console.log(searchValue)
 currentWeather(searchValue)
-fiveDay(searchValue)
-uvIndex(searchValue)
+// fiveDay(searchValue)
+// uvIndex(searchValue)
 })
 
 var APIkey="f68b613983e0ae131f5d600baa16f997"
@@ -32,24 +32,27 @@ function fiveDay(searchValue){
     dataType: "json",
     success: function (response) {
       console.log(response)
+      $('.card').text(`${response.list[2]}`)
+      
   
     }
   });
 }
 
-function uvIndex(SearchValue) {
-  $.ajax({
-    type: "GET",
-    url: `http://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${APIkey}`,
-    dataType: "json",
-    success: function (response) {
-      console.log(response) 
-      $(`.card-uv`).text(`UV: ${response.coord.lon}`)
+// function uvIndex(SearchValue) {
+//   $.ajax({
+//     type: "GET",
+//     url: `http://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${APIkey}`,
+//     dataType: "json",
+//     success: function (response) {
+//       console.log(response) 
+//       $(`.card-uv`).text(`UV: ${response.coord.lon}`)
+//       $(`.card-uv`).text(`UV: ${response.coord.lat}`)
 
       
-    }
-  });
-}
+//     }
+//   });
+// }
 
 // on start preform 3 functions
 // 1. add city to search history 
