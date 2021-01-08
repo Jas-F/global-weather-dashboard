@@ -75,6 +75,7 @@ function uvIndex(lat, lon) {
     dataType: "json",
     success: function (response) {
       console.log(response) 
+      $('.card-uv').empty()
       var value = $('<p>').text(`UV Index: ${response.value}`)
       $(`.card-uv`).append(value)  
     }
