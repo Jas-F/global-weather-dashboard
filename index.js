@@ -56,7 +56,7 @@ function fiveDay(searchValue){
           var col = $('<div>').addClass('col-2')
           var card= $('<div>').addClass('card')
           var body= $('<div>').addClass('card-body')
-          var date = $('<h5>').text(new Date(response.list[i].dt_txt).toLocaleDateString())
+          var date = $('<h6>').text(new Date(response.list[i].dt_txt).toLocaleDateString())
           var temp=  $('<p>').text(`Temp: ${response.list[i].main.temp}`)
           var humid= $('<p>').text(`Humidity: ${response.list[i].main.humidity}`)
         col.append(card.append(body.append(date,temp,humid)))
@@ -82,7 +82,5 @@ function uvIndex(lat, lon) {
   });
 }
 console.log(history)
-
-
 
 });
