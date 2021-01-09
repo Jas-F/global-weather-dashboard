@@ -38,6 +38,36 @@ function fiveDay(searchValue){
 ```
 <br>
 
+## Provide City 5-day Forecast
+
+```
+function fiveDay(searchValue){
+  $.ajax({
+    type: "GET",
+    url: `https://api.openweathermap.org/data/2.5/forecast?q=${searchValue}&appid=${APIkey}`,
+    dataType: "json",
+    success: function (response) {
+      console.log(response)
+      $('.forecast').empty()
+      for (i=0; i<response.list.length; i++){
+        if(response.list[i].dt_txt.indexOf("18:00:00")!== -1){
+          var col = $('<div>').addClass('col-2')
+          var card= $('<div>').addClass('card')
+          var body= $('<div>').addClass('card-body')
+          var date = $('<h6>').text(new Date(response.list[i].dt_txt).toLocaleDateString())
+          var temp=  $('<p>').text(`Temp: ${response.list[i].main.temp}`)
+          var humid= $('<p>').text(`Humidity: ${response.list[i].main.humidity}`)
+        col.append(card.append(body.append(date,temp,humid)))
+        $('.forecast').append(col)
+        }
+      }
+      // $(".card").text(response.list[2]);
+    },
+  });
+};
+```
+<br>
+
 ## Pin Previosly Searched City in Local Storage 
 
 ```
