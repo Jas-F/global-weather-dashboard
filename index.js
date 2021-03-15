@@ -79,11 +79,14 @@ function fiveDay(searchValue){
           // convert date object to string
           var date = $('<h6>').text(new Date(response.list[i].dt_txt).toLocaleDateString())
           // create key of temp to equal value temp from list of forecast data
+          // create key of icon to equal icon from list of forecast data
           var temp=  $('<p>').text(`Temp: ${response.list[i].main.temp}`)
           // create key of humidity to equal value from list array humidity
           var humid= $('<p>').text(`Humidity: ${response.list[i].main.humidity}`)
+
           // put all of the variables together to construct forcast cards when city is searched/function is called
           // in a colume of 2 append a card then append a card body to each card, append api response from list array to card body
+          // append icon to card body
         col.append(card.append(body.append(date,temp,humid)))
         $('.forecast').append(col)
         }
