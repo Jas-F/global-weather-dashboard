@@ -34,16 +34,20 @@ for (i=0; i<cities.length; i++){
 var APIkey="f68b613983e0ae131f5d600baa16f997"
 
 function currentWeather(searchValue){
+  // ajax call to get current weather when given a search value a.k.a searched city & Api key
   $.ajax({
     type: "GET",
     url: `https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&appid=${APIkey}`,
     dataType: "json",
+    // responce given from api
     success: function (response) {
       console.log(response)
+      // return api date (city name, temp, humidity, wind speed text content into city weather card)
       $('.card-title').text(response.name)
       $('.card-temp').text(`Temp: ${response.main.temp}`)
       $('.card-hum').text(`Humidity: ${response.main.humidity}`)
       $('.card-wind').text(`Wind Speed: ${response.wind.speed}`)
+      // get cities longitude and latitude and pass it into uvIndex function
       var lat= response.coord.lat
       var lon= response.coord.lon
       uvIndex(lat,lon)
