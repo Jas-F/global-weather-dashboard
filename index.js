@@ -57,6 +57,7 @@ function currentWeather(searchValue){
 
 
 function fiveDay(searchValue){
+  // ajax call for weather forecast when given search value and api key 
   $.ajax({
     type: "GET",
     url: `https://api.openweathermap.org/data/2.5/forecast?q=${searchValue}&appid=${APIkey}`,
@@ -64,14 +65,24 @@ function fiveDay(searchValue){
     success: function (response) {
       console.log(response)
       $('.forecast').empty()
+      // iterate through list of daily and hourly forecast 
       for (i=0; i<response.list.length; i++){
+        // conditional statement if list includes 6 p.m. meaning weather at 6 p.m. each day complete this function
         if(response.list[i].dt_txt.indexOf("18:00:00")!== -1){
+          // build 5 day forecast card and body using jquery
           var col = $('<div>').addClass('col-2')
           var card= $('<div>').addClass('card')
           var body= $('<div>').addClass('card-body')
+          // create date object using constructor 
+          // get date data from api response
+          // convert date object to string
           var date = $('<h6>').text(new Date(response.list[i].dt_txt).toLocaleDateString())
+          // create key of temp to equal value temp from list of forecast data
           var temp=  $('<p>').text(`Temp: ${response.list[i].main.temp}`)
+          // create key of humidity to equal value from list array humidity
           var humid= $('<p>').text(`Humidity: ${response.list[i].main.humidity}`)
+          // put all of the variables together to construct forcast cards when city is searched/function is called
+          // in a colume of 2 append a card then append a card body to each card, append api response from list array to card body
         col.append(card.append(body.append(date,temp,humid)))
         $('.forecast').append(col)
         }
