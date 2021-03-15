@@ -42,6 +42,7 @@ function currentWeather(searchValue){
     // responce given from api
     success: function (response) {
       console.log(response)
+
       // return api date (city name, temp, humidity, wind speed text content into city weather card)
       $('.card-title').text(response.name)
       $('.card-temp').text(`Temp: ${response.main.temp}`)
@@ -108,5 +109,16 @@ function uvIndex(lat, lon) {
   });
 }
 console.log(history)
+
+// add functionality when i click on a city in the search history
+// then presented with current and future conditions
+// add onlick function for each city
+// when on click preform uvIndex, fiveday, and current weather function with the history search value
+
+// when i view the UV index i am presented with a color that indicates the whether conditions
+// add conditional statement if uv index is 0-2 make text color green
+// if uv index is 3-5 then change text color to css yellow
+// if uv index is 6-7 then change text color css to orange
+// if uv index is 8-10 then change text color css to red
 
 });
