@@ -121,4 +121,7 @@ console.log(history)
 // if uv index is 6-7 then change text color css to orange
 // if uv index is 8-10 then change text color css to red
 
+// display whether icon
+// get icon forecast api response
+
 });
