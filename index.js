@@ -93,6 +93,7 @@ function fiveDay(searchValue){
 };
 
 function uvIndex(lat, lon) {
+  // ajax call to get uv index data when given longitude and latitude of the searched city and api key
   $.ajax({
     type: "GET",
     url: `http://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${APIkey}`,
@@ -100,6 +101,7 @@ function uvIndex(lat, lon) {
     success: function (response) {
       console.log(response) 
       $('.card-uv').empty() 
+      // inside card uv div create p tag return text content of UV Index key with a value of response value
       var value = $('<p>').text(`UV Index: ${response.value}`)
       $(`.card-uv`).append(value) 
     }
