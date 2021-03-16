@@ -26,15 +26,18 @@ $(document).ready(function () {
     // clear the history
     $('.history').empty()
     // iterate through cities from local storage and append to to webpage
+    // for loop through and append each city to history section as a list item
     for (i = 0; i < cities.length; i++) {
-      var listItem = $('<li>').text(cities[i]).on("click", function (event) {
-        var searchValue = cities[i]
+      // store city in name as search value
+      let searchValue = cities[i]
+      var listItem = $('<li>').text(cities[i]).on("click", (event) => {
+        console.log(event)
         currentWeather(searchValue)
         fiveDay(searchValue)
       })
       $(".history").append(listItem)
     }
-   
+
   })
 });
 
