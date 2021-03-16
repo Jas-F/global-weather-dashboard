@@ -4,7 +4,7 @@ AS A traveler I WANT to see the weather outlook for multiple cities SO THAT I ca
 <br>
 
 ===========
-![Image](weather.png)
+![Image](weather.gif)
 
 <br>
 
