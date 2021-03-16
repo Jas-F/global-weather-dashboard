@@ -90,7 +90,10 @@ function fiveDay(searchValue) {
           var date = $('<h6>').text(new Date(response.list[i].dt_txt).toLocaleDateString())
           // create key of temp to equal value temp from list of forecast data
           // create key of icon to equal icon from list of forecast data
-          var icon = $()
+          // get icon from api
+          var iconSrc = (`http://openweathermap.org/img/wn/${response.list[i].weather[0].icon}.png`)
+          // convert the icon data into an image
+          var icon = $('<img>').attr("src", iconSrc)
           var temp = $('<p>').text(`Temp: ${response.list[i].main.temp}`)
           // create key of humidity to equal value from list array humidity
           var humid = $('<p>').text(`Humidity: ${response.list[i].main.humidity}`)
@@ -98,7 +101,9 @@ function fiveDay(searchValue) {
           // put all of the variables together to construct forcast cards when city is searched/function is called
           // in a colume of 2 append a card then append a card body to each card, append api response from list array to card body
           // append icon to card body
-          col.append(card.append(body.append(date, temp, humid)))
+          // <img src="http://openweathermap.org/img/wn/01d@2x.png" width="50px" height="50px" alt="">
+          // append icon to card body
+          col.append(card.append(body.append(date, icon, temp, humid)))
           $('.forecast').append(col)
         }
       }

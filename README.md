@@ -95,6 +95,10 @@ for (i=0; i<cities.length; i++){
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 * [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [Weather API](https://openweathermap.org/api)
+  
+## References 
+* [WeatherIcon](https://openweathermap.org/weather-conditions)
+
 
 ## Deployed Link
 
